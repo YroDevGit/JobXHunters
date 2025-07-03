@@ -5,7 +5,7 @@ import { loginUser, logoutUser } from "../controllers/AuthController";
 import { checkToken } from '../middleware/tokenkey';
 
 //User routes
-router.post("/user/add",checkToken, addUser);
+router.post("/user/add", addUser);
 router.post("/user/toggleStatus",checkToken, toggleStatus);
 router.get("/user/getall",checkToken, getAllUsers);
 router.post("/user/update/:id",checkToken, updateUser);

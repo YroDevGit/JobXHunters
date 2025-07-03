@@ -41,7 +41,7 @@ export const loginUser = [
 
                     if (Object.keys(checkToken).length > 0) {
                         res.status(code.failed).json({
-                            code: code.failed,
+                            code: process.env.DUPLICATE_ERROR,
                             message: `User ${username} is already login.!`,
                             result: checkToken
                         }); return;
@@ -56,13 +56,13 @@ export const loginUser = [
                     });
                 } else {
                     res.status(code.failed).json({
-                        code: code.failed,
+                        code: process.env.NO_RESULT_FOUND,
                         message: "Incorrect password"
                     }); return;
                 }
             } else {
                 res.status(code.failed).json({
-                    code: code.failed,
+                    code: process.env.NO_RESULT_FOUND,
                     message: "Account not found"
                 });
             }
