@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { code } from "../../config/responseCodes";
 import { body, validationResult } from "express-validator";
 import ApiKey from "../../models/ApiKey";
-import { hashedPassword } from "../../helper/security";
+import { hashedPassword } from "../../helper/securityHelper";
 
 const validate = () => [
     body("username").notEmpty().withMessage("Username is required"),

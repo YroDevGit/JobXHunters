@@ -38,7 +38,7 @@ app.use(async (req: Request, res: Response, next: NextFunction) => {
 
 // Routes here....
 app.use('/', webRoutes); 
-app.use("/api", apiKeyMiddleware, apiRoutes);
+app.use("/api",apiKeyMiddleware, apiRoutes);
 
 
 app.use((req: Request, res: Response) => {
