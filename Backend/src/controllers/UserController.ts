@@ -22,7 +22,7 @@ export const addUser = [
             const error = validationResult(req);
             if (!error.isEmpty()) {
                 res.status(code.failed).json({
-                    code: code.failed,
+                    code: code.valfailed,
                     message: "Validation failed",
                     errors: error
                 }); return;
@@ -62,7 +62,7 @@ export const toggleStatus = [
         try {
             if (!req.query?.id || !req.query?.status) {
                 res.status(code.failed).json({
-                    code: code.failed,
+                    code: code.valfailed,
                     message: "param: id and status is required"
                 }); return;
             }
@@ -111,7 +111,7 @@ export const searchUser = [
         try {
             if (!req.query?.search) {
                 res.status(code.failed).json({
-                    code: code.failed,
+                    code: code.valfailed,
                     message: "Param: search not found"
                 }); return;
             }
@@ -150,7 +150,7 @@ export const updateUser = [
         try {
             if (!req.params?.id) {
                 res.status(code.failed).json({
-                    code: code.failed,
+                    code: code.valfailed,
                     message: "param: id not found.!"
                 }); return;
             }

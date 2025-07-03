@@ -21,7 +21,7 @@ export const loginUser = [
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 res.status(code.failed).json({
-                    code: code.failed,
+                    code: code.valfailed,
                     message: "Body Validation Failed",
                     errors: errors
                 }); return;
@@ -84,7 +84,7 @@ export const logoutUser = [
             const error = validationResult(req);
             if (!error.isEmpty()) {
                 res.status(code.failed).json({
-                    code: code.failed,
+                    code: code.valfailed,
                     message: "Validation failed",
                     errors: error
                 }); return;
