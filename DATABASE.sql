@@ -33,7 +33,9 @@ CREATE TABLE IF NOT EXISTS `auth` (
   UNIQUE KEY `user` (`user`) USING HASH
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table jobx.auth: ~0 rows (approximately)
+-- Dumping data for table jobx.auth: ~1 rows (approximately)
+REPLACE INTO `auth` (`id`, `apikey`, `user`, `password`, `date_created`, `date_updated`, `status`) VALUES
+	(1, '01040e13e1fe4542716407fbca4f8d2e41843862480b9135c9508cc450b4e226', 'Tyrone1@clearmindai.com', '$2b$10$jP3jDwbO7UtNLRrykcxOROQG7u5eQcWowDul9Q0DvB90ctanvRREG', '2025-07-03 11:25:48', '2025-07-03 11:25:48', 1);
 
 -- Dumping structure for table jobx.login
 CREATE TABLE IF NOT EXISTS `login` (
@@ -51,7 +53,8 @@ CREATE TABLE IF NOT EXISTS `login` (
 -- Dumping data for table jobx.login: ~2 rows (approximately)
 REPLACE INTO `login` (`id`, `userid`, `user`, `token`, `active`, `device`, `unit`, `status`) VALUES
 	(25, 2, 'Tyrone1@clearmindai.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlR5cm9uZTFAY2xlYXJtaW5kYWkuY29tIiwiaWF0IjoxNzUxNTEwMjczLCJleHAiOjE3NTE1MTM4NzN9.Pa2y3NGYmqVnPEA30bbUCuW0GfbLdYB5jttXVkXyG30', 0, 'unkown', 'unknown', 1),
-	(26, 2, 'Tyrone1@clearmindai.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlR5cm9uZTFAY2xlYXJtaW5kYWkuY29tIiwiaWF0IjoxNzUxNTEyMjgzLCJleHAiOjE3NTE1MTU4ODN9.LV-4ywxkMBmwYpF7y5aabgS0pCTcTxTdyywFnUplCPM', 1, 'unkown', 'unknown', 1);
+	(26, 2, 'Tyrone1@clearmindai.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlR5cm9uZTFAY2xlYXJtaW5kYWkuY29tIiwiaWF0IjoxNzUxNTEyMjgzLCJleHAiOjE3NTE1MTU4ODN9.LV-4ywxkMBmwYpF7y5aabgS0pCTcTxTdyywFnUplCPM', 1, 'unkown', 'unknown', 1),
+	(28, 3, 'Tyrone4@clearmindai.com', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlR5cm9uZTRAY2xlYXJtaW5kYWkuY29tIiwiaWF0IjoxNzUxNTIwMzc3LCJleHAiOjE3NTE1MjM5Nzd9.ksHkw9zcDHAdLKH7bbFdqjYt6MGPOgtb7WXaN7uDW68', 1, 'unkown', 'unknown', 1);
 
 -- Dumping structure for table jobx.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -72,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table jobx.users: ~2 rows (approximately)
 REPLACE INTO `users` (`id`, `firstname`, `lastname`, `middlename`, `username`, `password`, `type`, `status`, `date_created`, `date_updated`) VALUES
 	(1, 'Prince Yro', 'gg', 'H', 'Tyrone@clearmindai.com', '$2b$10$vpoCjAriGDbK.EI7g.4rn.k1v2MT02tIZAdQ4FBthUSj/LE7H9ryG', 'U', 1, '2025-07-03 08:13:36', '2025-07-03 08:13:36'),
-	(2, 'Prince Yros', 'gg', 'H', 'Tyrone1@clearmindai.com', '$2b$10$zi3.O6Cm4JmsplouVPs..eJ/vTxciHCt7QPJDamKE4/QvGtHKuMeW', 'U', 1, '2025-07-03 10:02:12', '2025-07-03 10:02:12');
+	(2, 'Prince Yros', 'gg', 'H', 'Tyrone1@clearmindai.com', '$2b$10$zi3.O6Cm4JmsplouVPs..eJ/vTxciHCt7QPJDamKE4/QvGtHKuMeW', 'U', 1, '2025-07-03 10:02:12', '2025-07-03 10:02:12'),
+	(3, 'Tyrone', 'Malocon', 'L', 'Tyrone4@clearmindai.com', '$2b$10$coCire4IQ.O4uFFJn7Dy8eXshhiiWhwcgO5ipjOeBwr7umAg9dQLy', 'U', 1, '2025-07-03 11:36:38', '2025-07-03 11:36:38');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
