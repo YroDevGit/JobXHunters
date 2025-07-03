@@ -34,8 +34,6 @@ CREATE TABLE IF NOT EXISTS `auth` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table jobx.auth: ~0 rows (approximately)
-REPLACE INTO `auth` (`id`, `apikey`, `user`, `password`, `date_created`, `date_updated`, `status`) VALUES
-	(3, '2b82e73e80fe0eefe1e8204d8752c22054e6d02659adf2b2b840bc830cbabe84', 'tmalocon', '$2b$10$LeayMR9pbfXrNW339EBgM.nJZKGXz4lqzcTVLN9kD3rb4gr/StO6e', '2025-07-02 14:48:07', '2025-07-02 14:48:07', 1);
 
 -- Dumping structure for table jobx.login
 CREATE TABLE IF NOT EXISTS `login` (
@@ -71,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `username` (`username`) USING HASH
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table jobx.users: ~1 rows (approximately)
+-- Dumping data for table jobx.users: ~2 rows (approximately)
 REPLACE INTO `users` (`id`, `firstname`, `lastname`, `middlename`, `username`, `password`, `type`, `status`, `date_created`, `date_updated`) VALUES
 	(1, 'Prince Yro', 'gg', 'H', 'Tyrone@clearmindai.com', '$2b$10$vpoCjAriGDbK.EI7g.4rn.k1v2MT02tIZAdQ4FBthUSj/LE7H9ryG', 'U', 1, '2025-07-03 08:13:36', '2025-07-03 08:13:36'),
 	(2, 'Prince Yros', 'gg', 'H', 'Tyrone1@clearmindai.com', '$2b$10$zi3.O6Cm4JmsplouVPs..eJ/vTxciHCt7QPJDamKE4/QvGtHKuMeW', 'U', 1, '2025-07-03 10:02:12', '2025-07-03 10:02:12');
