@@ -6,7 +6,7 @@ import ApiKey from "../../models/ApiKey";
 import { hashedPassword } from "../../helper/securityHelper";
 
 const validate = () => [
-    body("username").notEmpty().withMessage("Username is required"),
+    body("username").notEmpty().withMessage("Username is required").isEmail().withMessage("username should be a valid email"),
     body("password").notEmpty().withMessage("Password is required").isLength({ min: 8 }).withMessage("Password should have 8 or more characters")
 ];
 
