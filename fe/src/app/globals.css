@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== CSS Variables for Theme ===== */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans, system-ui, sans-serif);
+  --font-mono: var(--font-geist-mono, monospace);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ===== Base Styling ===== */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+/* Classes ===== */
+@layer components {
+  .input-field {
+    @apply w-full px-3 py-2 rounded-md border border-gray-600 bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-pink-800 transition;
+  }
+
+  .label-field {
+    @apply text-sm font-medium tracking-wide text-white;
+  }
+
+  .btn-primary {
+    @apply w-full rounded-lg px-4 py-2 bg-gradient-to-br from-pink-600 to-pink-900 hover:from-pink-700 hover:to-pink-800 text-white font-semibold cursor-pointer transition-all duration-300;
+  }
+
+  .form-section {
+    @apply flex flex-col gap-2;
+  }
+
+  .card-glass {
+    @apply w-full max-w-lg rounded-2xl bg-white/5 p-8 border border-white/10 backdrop-blur-md text-white;
+  }
+}
