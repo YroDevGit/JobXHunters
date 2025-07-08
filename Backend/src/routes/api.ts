@@ -1,9 +1,9 @@
 import express,{Request, Response, NextFunction} from "express";
 const router = express.Router();
-import { addUser, toggleStatus, getAllUsers,updateUser, searchUser } from "../controllers/UserController";
-import { loginUser, logoutUser } from "../controllers/AuthController";
-import { checkToken } from '../middleware/tokenkey';
-import { addCompany } from "../controllers/CompanyController";
+import { addUser, toggleStatus, getAllUsers,updateUser, searchUser } from "@/controllers/UserController";
+import { loginUser, logoutUser } from "@/controllers/AuthController";
+import { checkToken } from '@/middleware/tokenkey';
+import { addCompany, getCompany } from "@/controllers/CompanyController";
 
 
 //User routes
@@ -19,5 +19,6 @@ router.post("/user/logout/:user", logoutUser);
 
 //Company routes
 router.post("/company/add",checkToken, addCompany);
+router.get("/company/get",checkToken, getCompany); 
 
 export default router;

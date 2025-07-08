@@ -1,5 +1,5 @@
 
-import Token from "../models/token";
+import Token from "@/models/token";
 
 export const authLogin = async(userid:number,username:string, token:string, active:number, device:String, unit:String):Promise<any>=>{    
     const result = await Token.create({

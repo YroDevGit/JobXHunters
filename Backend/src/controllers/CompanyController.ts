@@ -1,8 +1,8 @@
 import { Op } from "sequelize";
-import { body, validationResult } from "express-validator";
+import { body, Result, validationResult } from "express-validator";
 import { Request, Response } from "express";
-import { code } from "../config/responseCodes";
-import { Company } from "../models/Company";
+import { code } from "@/config/responseCodes";
+import { Company } from "@/models/Company";
 
 
 const validate = (): any => [
@@ -51,3 +51,26 @@ export const addCompany = [
 
     }
 ];
+
+//get company
+export const getCompany =async (req:Request, res: Response):Promise<any> =>{
+    try{
+        let data = null;
+        if(req.query.id){
+            data = await Company.findAll({where:{id:req.query.id}});
+        }else{
+            data = await Company.findAll();
+        }
+        res.status(code.success).json({
+            code: code.success,
+            message: "OK",
+            result: data
+        });
+    }catch(err:any){
+        res.status(code.error).json({
+            code: code.error,
+            message: err.message,
+            stack: err.stack
+        });
+    }
+}

@@ -1,4 +1,4 @@
-import sequelize from "../config/sequelize";
+import sequelize from "@/config/sequelize";
 import { DataTypes } from "sequelize";
 
 const Token = sequelize.define("Token", {

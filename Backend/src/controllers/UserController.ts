@@ -1,9 +1,9 @@
-import User from "../models/User";
+import User from "@/models/User";
 import { Request, Response } from "express";
 import { body, validationResult } from "express-validator";
-import { code } from "../config/responseCodes";
-import { hashedPassword } from "../helper/securityHelper";
-import { duplicateError } from "../helper/dbvalidationHelper";
+import { code } from "@/config/responseCodes";
+import { hashedPassword } from "@/helper/securityHelper";
+import { duplicateError } from "@/helper/dbvalidationHelper";
 import { Op } from "sequelize";
 
 const validate = ():any => [

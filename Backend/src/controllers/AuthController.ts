@@ -1,11 +1,11 @@
-import { comparePassword } from "../helper/securityHelper";
+import { comparePassword } from "@/helper/securityHelper";
 import { Request, Response } from "express";
 import { body, param, validationResult } from "express-validator";
-import { code } from "../config/responseCodes";
-import User from "../models/User";
+import { code } from "@/config/responseCodes";
+import User from "@/models/User";
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { authLogin, authLogout } from "../helper/authHelper";
-import Token from "../models/token";
+import { authLogin, authLogout } from "@/helper/authHelper";
+import Token from "@/models/token";
 
 const validate = (): any => [
     body("username").notEmpty().withMessage("username is required")

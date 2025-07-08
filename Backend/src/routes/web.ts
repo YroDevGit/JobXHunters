@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-import {apiKeyMiddleware}  from "../middleware/apikey";
-import { addApikey } from "../controllers/generate/makeApikey";
+import {apiKeyMiddleware}  from "@/middleware/apikey";
+import { addApikey } from "@/controllers/generate/makeApikey";
 const router = express.Router();
 
 
