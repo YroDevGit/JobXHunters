@@ -52,4 +52,12 @@ body {
   .card-glass {
     @apply w-full max-w-lg rounded-2xl bg-white/5 p-8 border border-white/10 backdrop-blur-md text-white;
   }
+  .link-underline {
+      @apply absolute h-0.5 bg-pink-700 transition-all duration-300 w-0 left-1/2 -bottom-1;
+  }
+  .group:hover .link-underline,
+    .active-link .link-underline {
+      left: 0;
+      width: 100%;
+    }
 }
