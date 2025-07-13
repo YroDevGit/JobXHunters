@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Hero = () => {
+
   return (
     <>
     <div className='max-w-7xl relative mb-2 mt-4 w-full'>
@@ -47,6 +48,7 @@ const Hero = () => {
             </div>
         </div>
     </div>
+      
     </>
   );
 };
