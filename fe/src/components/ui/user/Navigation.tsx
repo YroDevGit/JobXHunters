@@ -47,16 +47,31 @@ const Navigation = () => {
       };
   }, []);
 
+  const isEmployer = false; // i will create a context for this if the user is employer or regular employee only
+
   return (
     <>
-    <div className="hidden lg:block md:space-x-5 space-x-0 py-2">   
+    <div className="hidden lg:block md:space-x-5 space-x-0 py-2"> 
+       {isEmployer ?
+        (
+        <>
+          <NavLink label='Post a Job' href='/' />
+          <NavLink label='Find resumes' href='/resumes' />
+        </>
+        )
+        :
+        (
+           <>
           <NavLink label='Home' href='/' />
           <NavLink label='Job Posts' href='/jobs' />
           <NavLink label='Explore Companies' href='/companies' />                   
           {/* <span className='border border-gray-400 h-6 mt-1 -ml-6 mr-2'></span> */}
-          <NavLink label='Employer Site' href='' />
+          <NavLink label='Employer Site' href='/employer' />
           <button className='cursor-pointer py-2 -mt-2 px-6 rounded-lg border border-gray-500 text-white hover:bg-pink-700'>Login</button>
-          
+          </>
+        )
+      }  
+         
           
     </div>
 
@@ -103,11 +118,27 @@ const Navigation = () => {
               }`}
             >
               <div className="flex flex-col space-y-6">
-                <NavLink label="Home" href="/" onClick={() => setMobileMenuOpen(false)} />
-                <NavLink label="Job Posts" href="/jobs" onClick={() => setMobileMenuOpen(false)} />
-                <NavLink label="Explore Companies" href="/companies" onClick={() => setMobileMenuOpen(false)} />
-                <NavLink label="Employer Site" href="/projects" onClick={() => setMobileMenuOpen(false)} />
+              {
+                isEmployer ?
+                (
+                  <>
+                  <NavLink label="Post a job" href="/" onClick={() => setMobileMenuOpen(false)} />
+                   <NavLink label='Find resumes' href='/resumes' />
+                  </>
+                ) 
+                :
+                (
+                  <>
+                   <NavLink label="Home" href="/" onClick={() => setMobileMenuOpen(false)} />
+                  <NavLink label="Job Posts" href="/jobs" onClick={() => setMobileMenuOpen(false)} />
+                  <NavLink label="Explore Companies" href="/companies" onClick={() => setMobileMenuOpen(false)} />
+                  <NavLink label="Employer Site" href="/projects" onClick={() => setMobileMenuOpen(false)} />
                 
+                  </>
+                )
+              }
+
+               
               </div>
             </div>
         </div>
