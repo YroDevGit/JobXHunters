@@ -3,7 +3,6 @@ import React from 'react';
 const Hero = () => {
 
   return (
-    <>
     <div className='max-w-7xl relative mb-2 mt-4 w-full'>
         <div className='relative flex flex-col md:flex-row gap-1 md:gap-0 items-center justify-items-center'>          
             <div className='relative md:w-[500px] md:absolute md:left-0 flex flex-col bg-white/90 rounded-md backdrop-blur-md shadow-xl p-2 md:p-4 z-[10]'>
@@ -48,8 +47,6 @@ const Hero = () => {
             </div>
         </div>
     </div>
-      
-    </>
   );
 };
 

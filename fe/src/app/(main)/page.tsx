@@ -2,7 +2,6 @@
 import Carousel from "@/components/ui/user/Carousel";
 import Hero from "@/components/ui/user/Hero";
 import JobSearch from "@/components/ui/user/JobSearch";
-import { link } from "fs";
 
 export default function Home() {
 
@@ -41,6 +40,10 @@ export default function Home() {
   return (
     <>
       <JobSearch/>
+
+      {/* this where the jobSearch result where display
+      use if and else for this */}
+
       <main className="flex flex-col items-center justify-center px-6">
           <Hero />
           <Carousel cards={cards} />

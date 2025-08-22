@@ -1,89 +1,93 @@
 'use client'
 
 import React from 'react'
-import { useKeenSlider } from 'keen-slider/react';
-import 'keen-slider/keen-slider.min.css';
-import Link from 'next/link';
+import { useKeenSlider } from 'keen-slider/react'
+import 'keen-slider/keen-slider.min.css'
+import Link from 'next/link'
 
 type Card = {
-  id: number;
-  title: string;
-  jobsCount: number;
-  imageUrl: string;
-  link: string;
-};
-
-interface CarouselProps {
-  cards: Card[];
-
+  id: number
+  title: string
+  jobsCount: number
+  imageUrl: string
+  link: string
 }
 
-export default function Carousel({cards} : CarouselProps){
+interface CarouselProps {
+  cards: Card[]
+}
 
-const [sliderRef] = useKeenSlider<HTMLDivElement>({
+export default function Carousel({ cards }: CarouselProps) {
+  const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: 'free-snap',
     slides: {
-      perView: 1,
-      spacing: 15,
-    },
+    perView: 1.1, // mobile: slightly smaller so you see the next card peeking
+    spacing: 12,
+  },
     breakpoints: {
       '(min-width: 640px)': {
-        slides: { perView: 2, spacing: 20 },
+        slides: { perView: 2.2, spacing: 16 },
       },
       '(min-width: 1024px)': {
-        slides: { perView: 3, spacing: 25 },
+        slides: { perView: 3.06, spacing: 20 },
       },
     },
-  });
+  })
 
   return (
-   <>
-   <div className='w-full flex flex-col justify-start mt-5'>
-     <h2 className='text-[26px] text-gray-100'>Find your next Employer</h2>
-    <h2 className='text-base text-gray-400 text-wrap'>Explore company profiles to find the right workplace for you. Learn about jobs, reviews, company culture, perks and benefits.</h2>
-   </div>
-    <div className='relative max-w-7xl w-full mt-2 md:mt-4'>
-       <div ref={sliderRef} className="keen-slider" style={{ padding: '0 1rem' }}>
-        {cards.map(({ id, title, jobsCount, imageUrl,link }) => (
-            <div key={id} className="keen-slider__slide" style={{ cursor: 'grab' }}>
-            <Link href={link} passHref legacyBehavior>
-            <a href="">
+    <div className="w-full">
+      {/* Heading */}
+      <div className="relative w-full flex flex-col justify-start mt-5">
+        <h2 className="text-[26px] text-gray-100">Find your next Employer</h2>
+        <p className="text-base text-gray-400">
+          Explore company profiles to find the right workplace for you. Learn
+          about jobs, reviews, company culture, perks and benefits.
+        </p>
+      </div>
+
+      {/* Slider */}
+      <div className="relative max-w-7xl w-full mt-4">
+        <div ref={sliderRef} className="keen-slider px-4">
+          {cards.map(({ id, title, jobsCount, imageUrl, link }) => (
             <div
-                style={{
-                background: '#fff',
-                borderRadius: 12,
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                overflow: 'hidden',
-                userSelect: 'none',
-                }}
-                
+              key={id}
+              className="keen-slider__slide max-w-full cursor-grab"
+              style={{ width: "300px" }}
             >
-                <img
-                src={imageUrl}
-                alt={title}
-                style={{height: 180, objectFit: 'cover' }}
-                loading="lazy"
-                draggable={false}
-                className='-mt-5 w-[30%] md:w-[40%]'
-                
-                />
-                <div style={{ padding: '1rem' }}>
-                    <h3 className='text-gray-950 text-wrap' style={{ margin: 0, fontSize: '1.125rem', fontWeight: 600 }}>{title}</h3>
-                    <p className='inline-block py-1 px-2 text-base/6  text-gray-900 shadow-lg rounded-md bg-gray-300 mt-1'><strong className='font-semibold'>{jobsCount}</strong> Jobs</p>
+              <Link href={link}>
+                <div className="bg-white rounded-lg shadow-md  overflow-hidden flex flex-col h-full">
+                  {/* Image */}
+                 <img
+                    src={imageUrl}
+                    alt={title}
+                    loading="lazy"
+                    draggable={false}
+                    className="w-full sm:h-full md:h-80 object-cover"
+                  />
+
+                  {/* Content */}
+                  <div className="p-4 flex flex-col justify-between">
+                    <h3 className="text-gray-900 text-lg font-semibold break-words">
+                      {title}
+                    </h3>
+                    <p className="inline-block text-black bg-gray-300 rounded-md px-2 py-0.5 w-fit ">
+                      <strong>{jobsCount}</strong> Jobs
+                    </p>
+                  </div>
                 </div>
+              </Link>
             </div>
-            </a>
-           </Link>
+          ))}
         </div>
-        ))}
-        </div> 
-        <div className='mt-6'>
-            <button className='
-             rounded-md border border-white px-6 py-2 cursor-pointer hover:bg-pink-600
-            '>Read more...</button>
+
+        {/* Read More Button */}
+        <div className="mt-6">
+          <button className="rounded-md ml-4 border border-white px-6 py-2 cursor-pointer hover:bg-pink-600 text-white">
+            Read more...
+          </button>
         </div>
+      </div>
     </div>
-   </>
-  );
+  )
 }

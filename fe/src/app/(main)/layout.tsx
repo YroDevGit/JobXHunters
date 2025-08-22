@@ -13,10 +13,13 @@ export default function RootLayout({
         className=""
       >
         <div className="min-h-screen w-full bg-[radial-gradient(ellipse_at_top_center,_rgba(236,72,153,0.4),_transparent_50%)] bg-black">
-          <div className="absolute inset-0 backdrop-blur-md bg-transparent">
-              <div className="relative  flex flex-col min-h-screen">
-               <Header/>
-                {children}
+          <div className="min-h-screen absolute inset-0 backdrop-blur-md bg-transparent">
+              <div className="relative flex flex-col min-h-screen w-full">
+                <Header/>
+                <main className="flex-1">                 
+                      {children}                 
+                </main>
+
                 <Footer />
             </div>          
           </div>          
