@@ -36,7 +36,7 @@ export default function Home() {
   },
 ];
 
-
+  // Landing page
   return (
     <>
       <JobSearch/>
